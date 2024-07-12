@@ -1,34 +1,9 @@
 \section{Results}
 
-\begin{figure}
-    \centering
-    \includegraphics[width=0.65\linewidth]{images/thrombolysis_rates_model}
-    \caption{Enter Caption}
-    \label{fig:model_validation}
-\end{figure}
 
+\subsection{Thrombolysis decision model}
 
-\begin{figure}
-    \centering
-    \includegraphics[width=0.75\linewidth]{images/sim_results_summary}
-    \caption{Enter Caption}
-    \label{fig:sim_results_summary}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.75\linewidth]{images/sim_results_team_x}
-    \caption{Enter Caption}
-    \label{fig:sim_results_team_x}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=1.0\linewidth]{images/prototype_patient_ideal}
-    \caption{Enter Caption}
-    \label{fig:example_patient_outcome}
-\end{figure}
-
+Using a 80:20 train:test split, the model had an accuracy of 85\%, a balanced accuracy of 82\%, and a receiver operating characteristic area under curve of 0.92 (the confusion matrix is shown in the supplementary material).
 
 \begin{figure}
     \centering
@@ -37,10 +12,23 @@
     \label{fig:thrombolysis_rates_prototype_patients}
 \end{figure}
 
+Actual use of thrombolysis (35.1\% of 4 hour ischaemic stroke arrivals treated)
+(43.2\% of 4 hour ischaemic stroke arrivals treated)
+
+\subsection{Stroke outcome machine learning model}
+
+Using a 80:20 train:test split, the model had a receiver operating characteristic area under curve of 0.80 (the confusion matrix is shown in the supplementary material).
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1.0\linewidth]{images/prototype_patient_ideal}
+    \caption{Enter Caption}
+    \label{fig:example_patient_outcome}
+\end{figure}
 
 \begin{minipage}{1\textwidth}
 \small
-\begin{longtable}{p{5cm}| p{1.5cm} p{1.5cm} p{1.5cm}| p{1.5cm} p{1.5cm} p{1.5cm}}
+\begin{longtable}{p{5.2cm} | p{1.6cm} p{1.6cm} p{1.5cm} | p{1.6cm} p{1.6cm} p{1.5cm}}
 \caption{Predicted outcomes for patient prototypes. \textit{Ideal}: Onset-to-arrival = 90 minutes; arrival-to-scan = 15 minutes; onset-to-thrombolysis = 120 minutes; stroke severity (NIHSS) = 15; pre-stroke disability (mRS) = 0; age = 72.5; Precisely known onset; onset not during sleep; stroke type = Infarction; patient has no atrial fibrillation and is not receiving anticoagulants for atrial fibrillation. \textit{Late arrival}: as \textit{ideal} but onset-to-arrival = 225 minutes and onset-to-thrombolysis = 255 minutes. \textit{Mild}; As \textit{ideal} but stroke severity = 3; \textit{Prior disability}: as \textit{ideal} but pre-stroke disability = 3; \textit{Imprecise}: as \textit{ideal} but stroke onset time estimated. \textit{Age}: as \textit{ideal} but age = 87.5. Results show probability-weighted disaibility at discharge, and the proportion of patients predicted to have a very poor outcome (mRS 5-6).}\\
 \toprule
 \endhead
@@ -69,8 +57,18 @@ Prior disability + Imprecise + Late & 4.44 & 3.68 & 0.76 & 0.48 & 0.24 & 0.24\ta
 \normalsize
 \end{minipage}
 
-Actual use of thrombolysis (35.1\% of 4 hour ischaemic stroke arrivals treated)
-(43.2\% of 4 hour ischaemic stroke arrivals treated)
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.75\linewidth]{images/prototype_patients_team_x.png}
+    \caption{Enter Caption}
+    \label{fig:thrombolysis_rates_prototype_patients_team_x}
+\end{figure}
+
+\subsection{Lifetime economic model}
+
+
 
 
 \begin{table}
@@ -79,8 +77,9 @@ Actual use of thrombolysis (35.1\% of 4 hour ischaemic stroke arrivals treated)
 \label{tab:main}
 
 \begin{subtable}{1\textwidth}
+\centering
 \caption{}
-\begin{tabular}{p{2.0cm} p{1.4cm} p{1.3cm} p{1.3cm} p{1.5cm} p{1.3cm} p{1.4cm} p{1.3cm} p{1.3cm} }
+\begin{tabular}{p{2.0cm} p{1.4cm} p{1.3cm} p{1.3cm} p{1.5cm} p{1.3cm} p{1.4cm} p{1.3cm} p{1.3cm}}
 \toprule
 Population & Group & Death & Survival (median years) & Care years (median) & QALYs & \raggedright Discounted cost per patient & Proportion mRS 0-2 & Proportion mRS 5-6\tabularnewline
 \midrule
@@ -113,3 +112,27 @@ Benchmark & 13.6\% & 31.7 & £81,914 & £61,117 & £1,927 & -£20,797\tabularnew
 \end{table}
 
 \normalsize
+
+\subsection{Pathway model}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.75\linewidth]{images/sim_results_summary}
+    \caption{Enter Caption}
+    \label{fig:sim_results_summary}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.75\linewidth]{images/sim_results_team_x}
+    \caption{Enter Caption}
+    \label{fig:sim_results_team_x}
+\end{figure}
+
+
+
+
+
+
+
+
