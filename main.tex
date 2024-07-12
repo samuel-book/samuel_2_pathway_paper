@@ -78,6 +78,7 @@
 % Ignore title and abstract in word count
 %TC:ignore
 \include{sections/1_title}
+\maketitle
 %TC:endignore
 
 \include{sections/3_introduction}
@@ -93,6 +94,10 @@
 %\bibliographystyle{unsrt}
 %\bibliographystyle{unsrtnat}
 \bibliography{references}
+
+%TC:igno
+\include{sections/9_supplementary_material}
+%TC:endignore
 
 
 % Word counts - Don't count these!
