@@ -8,7 +8,8 @@
 
 
 % Packages
-\usepackage[a4paper, left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}
+\usepackage[a4paper, left=1.5cm, right=1.5cm, top=1.5cm, bottom=1.5cm]{geometry}
+\usepackage{array} % For allowing new column types in tables
 \usepackage{authblk} % For author formatting
 \usepackage{caption} % For figure and table captions
 \usepackage{cclicenses} % For creative commons license
@@ -18,12 +19,14 @@
 \usepackage{lineno} % Allows use of \linenumbers to add line numbers 
 \usepackage{lmodern} % A scalable font - avoids erros due to non-sclabale fonts
 \usepackage{longtable,booktabs}  % For tables
+\usepackage{markdown} % allow use of markdown syntax
 \usepackage{microtype} % 'Improved' typesetting
 \usepackage[nottoc,numbib]{tocbibind} % Add references to table of contents
 \usepackage{parskip} % Adds white space between paragraphs
 \usepackage{pdflscape} % To create landscape pages that show as landscape in PDF viewer
 \usepackage{ragged2e} % Better right ragged edges (allows hyphenation)
-\usepackage{subcaption} % Allows use of subfigures
+\usepackage{subcaption} % Allows use of subfigures and subtables
+\usepackage{subfig} % Allows use of subfigures and subtables
 \usepackage[super]{natbib} % Citations using superscript
 \usepackage{titlesec} % For title spacing
 \usepackage[toc,page]{appendix}
@@ -64,7 +67,6 @@
   \input{#1-chars.sum} characters (not including spaces)%
 }
 
-
 % Count tables in wordcount
 
 %TC:group table 0 1
@@ -72,20 +74,26 @@
 
 \begin{document}
 
+
 % Ignore title and abstract in word count
 %TC:ignore
 \include{sections/1_title}
-
-\maketitle
 %TC:endignore
 
-\newpage
+\include{sections/3_introduction}
+\include{sections/4_methods}
+\include{sections/5_results}
+\include{sections/6_discussions}
 
-Test text
 
-\include{tables/model_overview}
 
-Test text
+\section{References}
+\bibliographystyle{naturemag}
+%\bibliographystyle{plainnat}
+%\bibliographystyle{unsrt}
+%\bibliographystyle{unsrtnat}
+\bibliography{references}
+
 
 % Word counts - Don't count these!
 %TC:ignore
