@@ -3,12 +3,16 @@
 
 \subsection{Thrombolysis decision model}
 
-Using a 80:20 train:test split, the model had an accuracy of 85\%, a balanced accuracy of 82\%, and a receiver operating characteristic area under curve of 0.92 (the confusion matrix is shown in the supplementary material).
+The thrombolysis decision model predicted the probability of any patient receiving thrombolysis at any given stroke team.
+
+Using a 80:20 train:test split, the model had an accuracy of 85\%, a balanced accuracy of 82\% (accuracy and balanced accuracy using a 50\% probability cut-off to classify a patient as a binary 'likely to receive thrombolysis' or not), and a receiver operating characteristic area under curve of 0.92 (the confusion matrix is shown in the supplementary material).
+
+
 
 \begin{figure}
     \centering
     \includegraphics[width=0.75\linewidth]{images/prototype_patients_all_teams}
-    \caption{Enter Caption}
+    \caption{Violin plots showing the variation in predicted thrombolysis rates for 17 patient prototypes across stroke teams. \textit{Ideal}: Onset-to-arrival = 90 minutes; arrival-to-scan = 15 minutes; onset-to-thrombolysis = 120 minutes; stroke severity (NIHSS) = 15; pre-stroke disability (mRS) = 0; age = 72.5; Precisely known onset; onset not during sleep; stroke type = Infarction; patient has no atrial fibrillation and is not receiving anticoagulants for atrial fibrillation; \textit{Late arrival}: as \textit{ideal} but onset-to-arrival = 225 minutes and onset-to-thrombolysis = 255 minutes \textit{Mild}: As \textit{ideal} but stroke severity = 3; \textit{Prior disability}: as \textit{ideal} but pre-stroke disability = 3; \textit{Imprecise}: as \textit{ideal} but stroke onset time estimated; \textit{Age}: as \textit{ideal} but age = 87.5.}
     \label{fig:thrombolysis_rates_prototype_patients}
 \end{figure}
 
