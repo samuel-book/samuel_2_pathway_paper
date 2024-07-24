@@ -95,6 +95,18 @@
 %\bibliographystyle{unsrtnat}
 \bibliography{references}
 
+
+% Number for supplementary material
+\newcommand{\beginsupplement}{
+    \setcounter{section}{0}
+    \renewcommand{\thesection}{S\arabic{section}}
+    \setcounter{figure}{0}
+    \renewcommand{\thefigure}{S\arabic{figure}}
+    \setcounter{table}{0}
+    \renewcommand{\thetable}{S\arabic{table}}
+}
+\beginsupplement
+
 %TC:igno
 \include{sections/9_supplementary_material}
 %TC:endignore
