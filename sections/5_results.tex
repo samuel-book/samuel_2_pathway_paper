@@ -7,7 +7,13 @@ The thrombolysis decision model predicted the probability of any patient receivi
 
 Using a 80:20 train:test split, the model had an accuracy of 85\%, a balanced accuracy of 82\% (accuracy and balanced accuracy using a 50\% probability cut-off to classify a patient as a binary 'likely to receive thrombolysis' or not), and a receiver operating characteristic area under curve of 0.92 (the confusion matrix is shown in the supplementary material).
 
+\subsection{Stroke outcome machine learning model}
 
+Using a 80:20 train:test split, the model had a receiver operating characteristic area under curve of 0.80 (the confusion matrix is shown in the supplementary material).
+
+\subsubsection{Prototype patients}
+
+Prototype patients revealed variation in likely decisions between stroke teams (figure \ref{fig:thrombolysis_rates_prototype_patients}). While almost all stroke teams would give thrombolysis to the \textit{ideal} candidate for thrombolysis, the predicted use of thrombolysis varied more as one characteristic was changed from the \textit{ideal} candidate. In particular there was was a very wide range in likelihood of a patient with a mild stroke (NIHSS 3) receiving thrombolysis. Mild stroke (NIHSS < 5) represents a large proportion of admissions (54\% of all emergency stroke admissions, and 38\% of ischaemic stroke patients arriving by ambulance within 4 hours of known stroke onset). Combinations of \textit{non-ideal} patient characteristics reduced predicted use of thrombolysis further (again with significant variation between stroke teams), especially when on of the non-ideal characteristics was a mild stroke.
 
 \begin{figure}
     \centering
@@ -16,12 +22,7 @@ Using a 80:20 train:test split, the model had an accuracy of 85\%, a balanced ac
     \label{fig:thrombolysis_rates_prototype_patients}
 \end{figure}
 
-Actual use of thrombolysis (35.1\% of 4 hour ischaemic stroke arrivals treated)
-(43.2\% of 4 hour ischaemic stroke arrivals treated)
-
-\subsection{Stroke outcome machine learning model}
-
-Using a 80:20 train:test split, the model had a receiver operating characteristic area under curve of 0.80 (the confusion matrix is shown in the supplementary material).
+Figure \ref{fig:example_patient_outcome} shows an example of outcome prediction for an \textit{ideal} candidate for thrombolysis. Expected benefit from thrombolysis may be calculated as the change in the proportion of \textit{good outcomes} (e.g. mRS 0-2), the proportion of \textit{bad outcomes} (e.g. mRS 5-6), or the shift in the central point of the outcome distribution (by weighting each mRS level by the probability of being discharged with that level of disability).
 
 \begin{figure}
     \centering
@@ -29,6 +30,22 @@ Using a 80:20 train:test split, the model had a receiver operating characteristi
     \caption{Enter Caption}
     \label{fig:example_patient_outcome}
 \end{figure}
+
+
+
+
+\subsubsection{Benchmark stroke teams and benchmark decisions}
+
+
+Actual use of thrombolysis (35.1\% of 4 hour ischaemic stroke arrivals treated)
+(43.2\% of 4 hour ischaemic stroke arrivals treated)
+
+
+
+
+
+
+
 
 \begin{minipage}{1\textwidth}
 \small
