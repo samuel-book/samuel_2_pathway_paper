@@ -4,17 +4,16 @@
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.75\linewidth]{images/flow}
+    \includegraphics[width=1.0\linewidth]{images/flow}
     \caption{An overview of the process steps included in the modelling.}
     \label{fig:flow}
 \end{figure}
 
 Figure \ref{fig:flow} shows an overview of the process steps included in the modelling. Process flow was modelled by sampling from distributions of historic flow for each stroke team. Decision-making (choice of thrombolysis) was modelled with machine learning, learning which patients would likely be given thrombolysis at each stroke team. Outcomes were predicted using either mathematical models based on clinical trials (for the full pathway model), or clinical outcome machine learning models (for the more detailed analysis of differences in thrombolysis decision-making between teams).
 
-
 \subsection{Data}
 
-Data was used for all emergency stroke admissions to England and Wales for the 5 years 2017-2021, for teams with average admissions of at least 250 admissions over the 5 years. The total number of patients were, 302,715, of whom 114,625 (38\%) arrived within 4 hours of known stroke onset. Of those arriving within 4 hours of known stroke onset 103,244 (90\%) arrived by ambulance.
+Data was used for all emergency stroke admissions to England and Wales for the 5 years 2017-2021, extracted from the national stroke registry for England, Wales and Northern Ireland, the Sentinel Stroke National Audit Programme (SSNAP). The registry contains all consecutive patients admitted to 100\% of acutely-admitting hospitals with a case ascertainment of over 90\% when compared to administrative data (Hospital Episode Statistics). Data was retrieved for teams with at least 250 admissions over the 5 years. The total number of patients was 302,715, of whom 114,625 (38\%) arrived within 4 hours of known stroke onset. Of those arriving within 4 hours of known stroke onset 103,244 (90\%) arrived by ambulance.
 
 The following data fields from SSNAP were used in the modelling:
 
@@ -24,7 +23,7 @@ The following data fields from SSNAP were used in the modelling:
 
     \item \textit{Age}: As midpoint of 5 year age bands.
 
-    \item \textit{Sex}.
+    \item \textit{Sex}: Sex of patient (male/female)
 
     \item \textit{Diagnosis of atrial fibrillation}: Did the patient have a diagnosis of atrial fibrillation, either made prior to admission, or during admission?
 
@@ -64,7 +63,7 @@ Code, with demonstration, is available \cite{allen_samuel_code_2024}.
 To help compare decision-making and outcomes across stroke teams we exemplified differences using \textit{prototype patients}. These prototype patients captured a range of features known to affect decisions to treat, and to affect outcomes, and included an \textit{ideal} candidate for thrombolysis. The prototype patients used were:
 
 \begin{enumerate}
-    \item \textit{Ideal}: Onset-to-arrival = 90 minutes; arrival-to-scan = 15 minutes; onset-to-thrombolysis = 120 minutes; stroke severity (NIHSS) = 15; pre-stroke disability (mRS) = 0; age = 72.5; Precisely known onset; onset not during sleep; stroke type = Infarction; patient has no atrial fibrillation and is not receiving anticoagulants for atrial fibrillation.
+    \item \textit{Ideal}: Onset-to-arrival = 90 minutes; arrival-to-scan = 15 minutes; onset-to-thrombolysis = 120 minutes; stroke severity (NIHSS) = 15; pre-stroke disability (mRS) = 0; age = 72.5; precisely known onset; onset not during sleep; stroke type = infarction; patient has no atrial fibrillation and is not receiving anticoagulants for atrial fibrillation.
 
     \item \textit{Late arrival}: as \textit{ideal} but onset-to-arrival = 225 minutes and onset-to-thrombolysis (when given) = 255 minutes.
 
@@ -90,18 +89,20 @@ The machine learning model predicting disability/death at discharge (mRS) is des
 \begin{enumerate}
     \item \textit{Prior disability level}: Disability level (mRS) before stroke
     \item \textit{Stroke severity}: Stroke severity (NIHSS) on arrival
-    \item \textit{Stroke team}: Attended hospital (one hot encoded)
+    \item \textit{Stroke team}: Attended hospital
     \item \textit{Age}: Age (as middle of 5 year age bands)
-    \item \textit{Onset to thrombolysis time}: Time from onset to receiving thrombolysis (minutes). Set to 99999 if did not receive thrombolysis.
+    \item \textit{Onset to thrombolysis time}: Time from onset to receiving thrombolysis (minutes). Set to 9999 if did not receive thrombolysis.
     \item \textit{Any afib diagnosis}: Patient has a diagnosis of atrial fibrillation (either on arrival or new)
     \item \textit{Precise onset known}: Onset time recorded is precise time (not a best estimate)
 \end{enumerate}
 
+\subsection{Mild stroke}
+
+We used the machine learning and decision models to specifically investigate the expected benefit or harm from mild stroke (NIHSS 0-4) in three groups: 1) All admissions within 4 hours of stroke onset, 2) Patients who had received thrombolysis, 3) Patients where the \textit{benchmark decision} would be to give thrombolysis.
+
 \subsection{Lifetime economic model}
 
-The lifetime economic model is described in detail by McMeekin \textit{et al}. \cite{mcmeekin_lifetime_2024}, and a full code for the economic model is available \cite{laws_stroke-optimiststreamlit_lifetime_stroke_2024}.
-
-Data about further admissions and mortality was provided for acute stroke patients discharged between 2013 and 2014 from a large English service.  This was combined with data from UK life tables to create a set of parametric equations in a model that use age, sex, and modified Rankin Scores to predict the life-time risk of mortality and secondary care resource utilisation including ED attendances, non-elective admissions, and elective admissions. A cohort of 1,509 (male 51\%; mean age 74) stroke patients had median follow-up of seven years and represented 7,111 post-discharge patient years.  A logistic model estimated mortality within twelve months of discharge and a Gompertz model was used over the remainder of the lifetime. Hospital attendances were modelled using a Weibull distribution. Non-elective and elective bed days were both modelled using a log-logistic distribution. Assumed utiltites by MRS at discharge were based on values reported by Dijkland \textit{et al}. \cite{dijkland_utility-weighted_2018}.
+Data about further admissions and mortality was provided for acute stroke patients discharged between 2013 and 2014 from a large English service.  This was combined with data from UK life tables to create a set of parametric equations in a model that use age, sex, and modified Rankin Scores to predict the life-time risk of mortality and secondary care resource utilisation including Emergency Department attendances, non-elective admissions, and elective admissions. A cohort of 1,509 (male 51\%; mean age 74) stroke patients had median follow-up of seven years and represented 7,111 post-discharge patient years.  A logistic model estimated mortality within twelve months of discharge and a Gompertz model was used over the remainder of the lifetime. Hospital attendances were modelled using a Weibull distribution. Non-elective and elective bed days were both modelled using a log-logistic distribution. Assumed utiltites by mRS at discharge were based on values reported by Dijkland \textit{et al}. \cite{dijkland_utility-weighted_2018}. The lifetime economic model is described in detail by McMeekin \textit{et al}. \cite{mcmeekin_lifetime_2024}, and a full code for the economic model is available \cite{laws_stroke-optimiststreamlit_lifetime_stroke_2024}.
 
 \subsection{Pathway model}
 
@@ -119,7 +120,7 @@ The pathway model may be used to examine a range of possible changes to improve 
 
     \item  \textit{Onset-known}: Sets the proportion of patients with a known stroke onset time to the national upper quartile if currently less than the national upper quartile.
 
-    \item \textit{Benchmark}: The benchmark thrombolysis rate takes the likelihood to give thrombolysis for patients scanned within 4 hours of onset from the majority vote of the 25 benchmark hospitals (see above)
+    \item \textit{Benchmark}: The benchmark thrombolysis rate takes the likelihood to give thrombolysis for patients scanned within 4 hours of onset from the majority vote of the 25 benchmark hospitals (see above).
 
     \item Combinations of the above.
     
