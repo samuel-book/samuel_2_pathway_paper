@@ -6,7 +6,7 @@ Descriptive statistics for hospital processes and patient populations are shown 
 
 The thrombolysis decision model predicted the probability of any patient receiving thrombolysis at any given stroke team.
 
-Using a 80:20 train:test split, the model had an accuracy of 85\%, a balanced accuracy of 82\% (accuracy and balanced accuracy using a 50\% probability cut-off to classify a patient as a binary 'likely to receive thrombolysis' or not), and a receiver operating characteristic area under curve of 0.92.
+Using an 80:20 train:test split, the model had an accuracy of 85\%, a balanced accuracy of 82\% (accuracy and balanced accuracy using a 50\% probability cut-off to classify a patient as a binary `likely to receive thrombolysis' or not), and a receiver operating characteristic area under curve of 0.92.
 
 
 \subsection{Stroke outcome machine learning model}
@@ -21,12 +21,12 @@ Using a 4:1 train:test split, the model had a receiver operating characteristic 
 
 \subsubsection{Thrombolysis decisions in prototype patients}
 
-Prototype patients revealed variation in likely decisions between stroke teams (figure \ref{fig:thrombolysis_rates_prototype_patients}). While almost all stroke teams would give thrombolysis to the \textit{ideal} candidate for thrombolysis, the predicted use of thrombolysis varied more as one characteristic was changed from the \textit{ideal} candidate. In particular there was was a very wide range in likelihood of a patient with a mild stroke (NIHSS 3) receiving thrombolysis. Mild stroke (NIHSS 0-4) represents a large proportion of admissions (54\% of all emergency stroke admissions, and 38\% of ischaemic stroke patients arriving by ambulance within 4 hours of known stroke onset). Combinations of \textit{non-ideal} patient characteristics reduced predicted use of thrombolysis further (again with significant variation between stroke teams), especially when the non-ideal characteristic was a mild stroke.
+Prototype patients revealed variation in likely decisions between stroke teams (figure \ref{fig:thrombolysis_rates_prototype_patients}). While almost all stroke teams would give thrombolysis to the \textit{ideal} candidate for thrombolysis, the predicted use of thrombolysis varied more as one characteristic was changed from the \textit{ideal} candidate. In particular there was a very wide range in likelihood of a patient with a mild stroke (NIHSS 3) receiving thrombolysis. Mild stroke (NIHSS 0-4) represents a large proportion of admissions (54\% of all emergency stroke admissions, and 38\% of ischaemic stroke patients arriving by ambulance within 4 hours of known stroke onset). Combinations of \textit{non-ideal} patient characteristics reduced predicted use of thrombolysis further (again with significant variation between stroke teams), especially when the non-ideal characteristic was a mild stroke.
 
 \begin{figure}
     \centering
     \includegraphics[width=0.75\linewidth]{images/prototype_patients_all_teams}
-    \caption{Violin plots showing the variation in predicted thrombolysis rates for 17 patient prototypes across stroke teams. \textit{Ideal}: Onset-to-arrival = 90 minutes; arrival-to-scan = 15 minutes; onset-to-thrombolysis = 120 minutes; stroke severity (NIHSS) = 15; pre-stroke disability (mRS) = 0; age = 72.5; Precisely known onset; onset not during sleep; stroke type = Infarction; patient has no atrial fibrillation and is not receiving anticoagulants for atrial fibrillation; \textit{Late arrival}: as \textit{ideal} but onset-to-arrival = 225 minutes and onset-to-thrombolysis = 255 minutes \textit{Mild}: As \textit{ideal} but stroke severity = 3; \textit{Prior disability}: as \textit{ideal} but pre-stroke disability = 3; \textit{Imprecise}: as \textit{ideal} but stroke onset time estimated; \textit{Age}: as \textit{ideal} but age = 87.5.}
+    \caption{Violin plots showing the variation in predicted thrombolysis rates for 17 patient prototypes across stroke teams. \textit{Ideal}: onset-to-arrival = 90 minutes; arrival-to-scan = 15 minutes; onset-to-thrombolysis = 120 minutes; stroke severity (NIHSS) = 15; pre-stroke disability (mRS) = 0; age = 72.5; precisely known onset; onset not during sleep; stroke type = infarction; patient has no atrial fibrillation and is not receiving anticoagulants for atrial fibrillation; \textit{Late arrival}: as \textit{ideal} but onset-to-arrival = 225 minutes and onset-to-thrombolysis = 255 minutes; \textit{Mild}: As \textit{ideal} but stroke severity = 3; \textit{Prior disability}: as \textit{ideal} but pre-stroke disability = 3; \textit{Imprecise}: as \textit{ideal} but stroke onset time estimated; \textit{Age}: as \textit{ideal} but age = 87.5.}
     \label{fig:thrombolysis_rates_prototype_patients}
 \end{figure}
 
@@ -35,7 +35,7 @@ Figure \ref{fig:thrombolysis_rates_prototype_patients_team_x} shows an example o
 \begin{figure}
     \centering
     \includegraphics[width=1\linewidth]{images/prototype_patients_team_x.png}
-    \caption{Predicted use of thrombolysis in 17 patient prototypes at a single hospital. Results show the the percentage of patients likely to receive thrombolysis, comparing \textit{benchmark decisions} (blue) and decisions likely at the example hospital (orange). Patient prototypes were: \textit{Ideal} candidate characteristics: Onset-to-arrival = 90 minutes; arrival-to-scan = 15 minutes; onset-to-thrombolysis = 120 minutes; stroke severity (NIHSS) = 15; pre-stroke disability (mRS) = 0; age = 72.5; precisely known onset; onset not during sleep; stroke type = infarction; patient has no atrial fibrillation and is not receiving anticoagulants for atrial fibrillation. Patient with mild stroke is as \textit{ideal} candidate, but with NIHSS = 3.}
+    \caption{Predicted use of thrombolysis in 17 patient prototypes at a single hospital. Results show the the percentage of patients likely to receive thrombolysis, comparing \textit{benchmark decisions} (blue) and decisions likely at the example hospital (orange). Patient prototypes were: \textit{Ideal} candidate characteristics: onset-to-arrival = 90 minutes; arrival-to-scan = 15 minutes; onset-to-thrombolysis = 120 minutes; stroke severity (NIHSS) = 15; pre-stroke disability (mRS) = 0; age = 72.5; precisely known onset; onset not during sleep; stroke type = infarction; patient has no atrial fibrillation and is not receiving anticoagulants for atrial fibrillation. \textit{Late arrival}: as \textit{Ideal} but onset-to-arrival = 225 minutes and onset-to-thrombolysis = 255 minutes; \textit{Mild}: As \textit{Ideal} but stroke severity = 3; \textit{Prior disability}: as \textit{Ideal} but pre-stroke disability = 3; \textit{Imprecise}: as \textit{Ideal} but stroke onset time estimated. \textit{Age}: as \textit{Ideal} but age = 87.5. With combinations of non-ideal features.}
     \label{fig:thrombolysis_rates_prototype_patients_team_x}
 \end{figure}
 
@@ -61,7 +61,7 @@ Figure \ref{fig:example_patient_outcomes} shows examples of outcome prediction f
         \caption{Patient as \textit{Ideal} candidate for thrombolysis, but with mild stroke (NIHSS 3)}
         \label{fig:patient_outcome_subfig2}
     \end{subfigure}
-    \caption{Predicted outcome probabilities, with and without thrombolysis, for an \textit{ideal} candidate for thrombolysis (top) and for a patient with mild stroke (bottom). \textit{Ideal} candidate characteristics: Onset-to-arrival = 90 minutes; arrival-to-scan = 15 minutes; onset-to-thrombolysis = 120 minutes; stroke severity (NIHSS) = 15; pre-stroke disability (mRS) = 0; age = 72.5; Precisely known onset; onset not during sleep; stroke type = Infarction; patient has no atrial fibrillation and is not receiving anticoagulants for atrial fibrillation. Patient with mild stroke is as \textit{ideal} candidate, but with NIHSS = 3. Errors shown are 95\% confidence limits derived from 30 bootstrapped models.}
+    \caption{Predicted outcome probabilities, with and without thrombolysis, for an \textit{Ideal} candidate for thrombolysis (top) and for a patient with \textit{mild stroke} (bottom). \textit{Ideal} candidate characteristics: onset-to-arrival = 90 minutes; arrival-to-scan = 15 minutes; onset-to-thrombolysis = 120 minutes; stroke severity (NIHSS) = 15; pre-stroke disability (mRS) = 0; age = 72.5; precisely known onset; onset not during sleep; stroke type = infarction; patient has no atrial fibrillation and is not receiving anticoagulants for atrial fibrillation. Patient with mild stroke is as \textit{Ideal} candidate, but with NIHSS = 3. Errors shown are 95\% confidence limits derived from 30 bootstrapped models.}
     \label{fig:example_patient_outcomes}
 \end{figure}
 
@@ -72,7 +72,7 @@ Table \ref{tab:prototype_outcomes} shows predicted outcomes across all prototype
 \begin{minipage}{1\textwidth}
 \small
 \begin{longtable}{p{5.2cm} | p{1.6cm} p{1.6cm} p{1.5cm} | p{1.6cm} p{1.6cm} p{1.5cm}}
-\caption{Predicted outcomes for patient prototypes. \textit{Ideal}: Onset-to-arrival = 90 minutes; arrival-to-scan = 15 minutes; onset-to-thrombolysis = 120 minutes; stroke severity (NIHSS) = 15; pre-stroke disability (mRS) = 0; age = 72.5; precisely known onset; onset not during sleep; stroke type = infarction; patient has no atrial fibrillation and is not receiving anticoagulants for atrial fibrillation. \textit{Late arrival}: as \textit{ideal} but onset-to-arrival = 225 minutes and onset-to-thrombolysis = 255 minutes. \textit{Mild}; As \textit{ideal} but stroke severity = 3; \textit{Prior disability}: as \textit{ideal} but pre-stroke disability = 3; \textit{Imprecise}: as \textit{ideal} but stroke onset time estimated. \textit{Age}: as \textit{ideal} but age = 87.5. Results show probability-weighted disability at discharge, and the proportion of patients predicted to have a very poor outcome (mRS 5-6).}\\
+\caption{Predicted outcomes for patient prototypes. \textit{Ideal}: onset-to-arrival = 90 minutes; arrival-to-scan = 15 minutes; onset-to-thrombolysis = 120 minutes; stroke severity (NIHSS) = 15; pre-stroke disability (mRS) = 0; age = 72.5; precisely known onset; onset not during sleep; stroke type = infarction; patient has no atrial fibrillation and is not receiving anticoagulants for atrial fibrillation. \textit{Late arrival}: as \textit{Ideal} but onset-to-arrival = 225 minutes and onset-to-thrombolysis = 255 minutes; \textit{Mild}: As \textit{Ideal} but stroke severity = 3; \textit{Prior disability}: as \textit{Ideal} but pre-stroke disability = 3; \textit{Imprecise}: as \textit{ideal} but stroke onset time estimated. \textit{Age}: as \textit{Ideal} but age = 87.5. Results show probability-weighted disability at discharge, and the proportion of patients predicted to have a very poor outcome (mRS 5-6). With combinations of non-ideal characteristics.}\\
 \label{tab:prototype_outcomes}
 Patient prototype & Untreated probability-weighted mRS & Treated probability-weighted mRS & Improve-ment & Untreated proportion mRS 5-6 & Treated proportion mRS 5-6 & Improve-ment\\
 \endhead
@@ -101,8 +101,7 @@ Mild + Prior disability + Imprecise & 3.01 & 2.65 & 0.36 & 0.06 & 0.06 & 0.00\\
 
 \subsection{Mild stroke}
 
-Table \ref{tab:mild_stroke} shows the predicted benefit of thrombolysis in mild ischaemic stroke (NIHSS 0-4) and non-mild stroke (NIHSS 5+). If thrombolysis were given to all mild stroke patients, the outcome model predicted that the proportion of patients with good outcomes (mRS 0-1 or -2) would reduce, the proportion with bad outcome (mRS 5-6) would increase and there would be a worsening in average mRS. In those mild stroke patients who actually received thrombolysis, either at a benchmark hospital or a non-benchmark hospital, it was predicted that there would be an increased proportion of good outcomes, and a beneficial shift in average mRS. The model predicted that in these groups there would still be a small increase in bad outcomes, but this was reduced to use in all mild stroke admissions. In non-mild stroke, thrombolysis had a net benefit by all measures in all groups.
-
+Table \ref{tab:mild_stroke} shows the predicted benefit of thrombolysis, for those who actually received thrombolysis, in mild ischaemic stroke (NIHSS 0-4) and non-mild stroke (NIHSS 5+) at \textit{benchmark hospitals} and \textit{non-benchmark hospitals}. In those mild stroke patients who actually received thrombolysis, either at a benchmark hospital or a non-benchmark hospital, it was predicted that there would be an increased proportion of good outcomes, and a beneficial shift in average mRS, but that there would be a small increase in bad outcomes. For non-mild stroke, thrombolysis improved by all outcome measures.
 
 \begin{minipage}{1\textwidth}
 \small
@@ -143,11 +142,11 @@ Table \ref{tab:health_econ} shows the modelled health economics of thrombolysis 
 \begin{subtable}{1\textwidth}
 \centering
 \caption{Counterfactual analysis of the effect of thrombolysis in either those patients who actually received thrombolysis, or those patients where the \textit{benchmark decision} would be to use thrombolysis.}
-\begin{tabular}{p{2.0cm} p{1.4cm} p{1.3cm} p{1.3cm} p{1.5cm} p{1.3cm} p{1.4cm} p{1.3cm} p{1.3cm}}
+\begin{tabular}{p{2.0cm} p{1.5cm} p{1.2cm} p{1.3cm} p{1.5cm} p{1.3cm} p{1.4cm} p{1.3cm} p{1.3cm}}
 \toprule
-Population & \raggedright Treated or not treated & Death & Survival (median years) & Care years (median) & QALYs & \raggedright Discounted cost per patient & Proportion mRS 0-2 & Proportion mRS 5-6\tabularnewline
+Population & \raggedright Modelled treatment & Death & Survival (median years) & Care years (median) & QALYs & \raggedright Discounted cost per patient & Proportion mRS 0-2 & Proportion mRS 5-6\tabularnewline
 \midrule
-Actual & Untreated & 17.1\% & 7.60 & 0.28 & 5.020 & £20,370 & 47.1\% & 23.9\%\tabularnewline
+Actual use & Untreated & 17.1\% & 7.60 & 0.28 & 5.020 & £20,370 & 47.1\% & 23.9\%\tabularnewline
 & Treated & 14.2\% & 7.91 & 0.25 & 5.258 & £19,806 & 53.9\% & 19.3\%\tabularnewline
 & Difference & -2.9\% & 0.31 & -0.03 & 0.238 & -£565 & 6.8\% & -4.7\%\tabularnewline
 \midrule
@@ -208,7 +207,7 @@ Across the study population, by combining pathway improvements, thrombolysis use
         \caption{Changes in one stroke team}
         \label{fig:scenarios_team}
     \end{subfigure}
-    \caption{Expected effect of alternative process improvement initiatives across the study population (top) or one specific stroke team (bottom). Each chart shows the effect on thrombolysis use (left) and on number of additional good outcomes (mRS 0-1) per 1,000 admissions due to use of thrombolysis (right). \textit{Base}: Uses the hospitals’ recorded pathway statistics. \textit{Speed}: Sets 95\% of patients having a scan within 4 hours of arrival, and all patients have 15 minutes arrival-to-scan time and 15 minutes scan-to-needle time.\textit{Ambo}: Subtracts 15 minutes from the current ambulance call to arrival-at-hospital times. \textit{Onset-known}: Sets the proportion of patients with a known stroke onset time to the national upper quartile if currently less than the national upper quartile. \textit{Benchmark}: The benchmark thrombolysis rate takes the likelihood to give thrombolysis for patients scanned within 4 hours of onset from the majority vote of the 25 benchmark hospitals.}
+    \caption{Expected effect of alternative process improvement initiatives across the study population (top) or one specific stroke team (bottom). Each chart shows the effect on thrombolysis use (left) and on number of additional good outcomes (mRS 0-1) per 1,000 admissions due to use of thrombolysis (right). \textit{Base}: Uses the hospitals’ recorded pathway statistics. \textit{Onset}: Sets the proportion of patients with a known stroke onset time to the national upper quartile if currently less than the national upper quartile. \textit{Speed}: Sets 95\% of patients having a scan within 4 hours of arrival, and all patients have 15 minutes arrival-to-scan time and 15 minutes scan-to-needle time. \textit{Ambo}: Subtracts 15 minutes from the current ambulance call to arrival-at-hospital times. \textit{Benchmark}: The benchmark thrombolysis rate takes the likelihood to give thrombolysis for patients scanned within 4 hours of onset from the majority vote of the 25 benchmark hospitals.}
     \label{fig:sim_results_summary}
 \end{figure}
 
